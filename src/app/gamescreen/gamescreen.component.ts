@@ -8,7 +8,8 @@ import { lorem } from 'faker';
 })
 export class GamescreenComponent implements OnInit {
   randomText = lorem.sentence();
-  inputValue: string;
+  inputValue = '';
+  displaySuccess = false;
 
   constructor() {}
 
@@ -16,10 +17,22 @@ export class GamescreenComponent implements OnInit {
 
   onInput(value: string): void {
     this.inputValue = value;
-    // DEBUG: console.log(this.inputValue);
+    if (this.inputValue === this.randomText) {
+      this.displaySuccess = true;
+    } else {
+      this.displaySuccess = false;
+    }
   }
 
-  // generateNewSentence(): string {
-  //   return lorem.sentence();
-  // }
+  compare(letter: string, userLetter?: string): string {
+    if (!userLetter) {
+      return 'pending';
+    }
+    if (userLetter === letter) {
+      return 'green';
+    }
+    if (userLetter !== letter) {
+      return 'red';
+    }
+  }
 }
