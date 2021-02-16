@@ -15,6 +15,7 @@
           type="text"
           class="input is-primary"
           (input)="onInput($event.target.value)"
+					placeholder="Type the above to see how you do"
         />
       </div>
       <div
@@ -22,6 +23,7 @@
         *ngIf="displaySuccess"
       >
         <h1 class="title has-text-white">Success!</h1>
+				<p class="has-text-danger">refresh browser to try again</p>
       </div>
     </div>
   </div>
