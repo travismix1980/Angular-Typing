@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { lorem } from 'faker';
 
 @Component({
   selector: 'app-gamescreen',
@@ -10,6 +11,10 @@ export class GamescreenComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  generateNewSentence(): string {
+    return lorem.sentence();
   }
 
 }
